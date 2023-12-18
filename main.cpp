@@ -75,9 +75,8 @@ size_t GetSize(const std::string& message)
     {
         throw std::out_of_range("Неправильный размер. Значение должно быть больше или равно нулю.");
     }
-    size_t newSize = static_cast<size_t>(size);
 
-    return newSize;
+    return static_cast<size_t>(size);
 }
 
 int* InputArray(const size_t size_){
