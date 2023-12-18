@@ -24,7 +24,7 @@ string ToString(const int* array, const size_t size_);
   * @param size_ - размер массива.
   * @return - массив, помноженный на множитель.
  */
-int* multiply_Six(int* array, const size_t size_);
+int* MultiplySix(int* array, const size_t size_);
 
 /**
  * @brief - ввод и проверка на корректное число элементов массива
@@ -35,8 +35,6 @@ size_t GetSize(const std::string& message);
 
 int main()
 {
-
-
   try{
     size_t sizeArr = GetSize("Введите размер массива: "), size = sizeArr;
    
@@ -44,23 +42,15 @@ int main()
     
       cout <<"Введенный массив: " << ToString(NewArray, size);
 
-      multiply_Six(NewArray,size);
+      MultiplySix(NewArray,size);
 
       cout <<"Результат: " << ToString(NewArray, size);
-
-
 
       if (NewArray != nullptr)
     {
        delete[] NewArray;
        NewArray = nullptr;
     }
-
-  }
-  catch (const std::invalid_argument& e) {
-        std::cout << "Ошибка: " << e.what() << std::endl;
-        return 1;
-  }
 
   return 0;
 }
@@ -104,7 +94,7 @@ string ToString(const int* array, const size_t size_)
   return buffer.str();  
 }
 
-int* multiply_Six(int* array, const size_t size_)
+int* MultiplySix(int* array, const size_t size_)
 {
   for (size_t index = 0; index < size_; index++)
   {
