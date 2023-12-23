@@ -24,7 +24,7 @@ string ToString(const int* array, const size_t size_);
   * @param size_ - размер массива.
   * @return - массив, помноженный на множитель.
  */
-int* MultiplySix(int* array, const size_t size_);
+void* MultiplySix(int* array, const size_t size_);
 
 /**
  * @brief - ввод и проверка на корректное число элементов массива
@@ -36,9 +36,9 @@ size_t GetSize(const std::string& message);
 int main()
 {
   try{
-    size_t sizeArr = GetSize("Введите размер массива: "), size = sizeArr;
+      size_t sizeArr = GetSize("Введите размер массива: "), size = sizeArr;
    
-    int* NewArray = InputArray(size);
+      int* NewArray = InputArray(size);
     
       cout <<"Введенный массив: " << ToString(NewArray, size);
 
@@ -47,11 +47,16 @@ int main()
       cout <<"Результат: " << ToString(NewArray, size);
 
       if (NewArray != nullptr)
-    {
-       delete[] NewArray;
-       NewArray = nullptr;
-    }
-
+        {
+          delete[] NewArray;
+          NewArray = nullptr;
+        }
+      } 
+  catch (const std::out_of_range& e) 
+       {
+         std::cout << "Ошибка: " << e.what() << std::endl;
+         return 1;
+       }
   return 0;
 }
 
@@ -63,7 +68,7 @@ size_t GetSize(const std::string& message)
 
     if (size <= 0)
     {
-        throw std::out_of_range("Неправильный размер. Значение должно быть больше или равно нулю.");
+        throw std::out_of_range("Неправильный размер. Значение должно быть больше нуля.");
     }
 
     return static_cast<size_t>(size);
@@ -94,7 +99,7 @@ string ToString(const int* array, const size_t size_)
   return buffer.str();  
 }
 
-int* MultiplySix(int* array, const size_t size_)
+void* MultiplySix(int* array, const size_t size_)
 {
   for (size_t index = 0; index < size_; index++)
   {
