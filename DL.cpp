@@ -1,7 +1,9 @@
 ﻿#include "DoubleList.h"
 
 using namespace std;
-
+/*
+* @brief Точка входа в программу.
+*/
 int main() 
 {
 	DoubleList <int> DL1;
