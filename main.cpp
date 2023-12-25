@@ -24,7 +24,7 @@ string ToString(const int* array, const size_t size_);
   * @param size_ - размер массива.
   * @return - массив, помноженный на множитель.
  */
-void* MultiplySix(int* array, const size_t size_);
+void MultiplySix(int* array, const size_t size_);
 
 /**
  * @brief - ввод и проверка на корректное число элементов массива
@@ -99,11 +99,10 @@ string ToString(const int* array, const size_t size_)
   return buffer.str();  
 }
 
-void* MultiplySix(int* array, const size_t size_)
+void MultiplySix(int* array, const size_t size_)
 {
   for (size_t index = 0; index < size_; index++)
   {
     array[index] = array[index]*6;
   }
-  return array;
 }
